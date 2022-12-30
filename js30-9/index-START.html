@@ -53,12 +53,21 @@ console.log(p)
     console.clear()
     // Grouping together
 dogs.forEach(dog => {
+  console.group(`${dog.name}`)
+  //OR console.groupCollapsed(`${dog.name}`) to have them collapsed when sent to the console
   console.log(`This is ${dog.name}`)
   console.log(`${dog.name} is ${dog.age} years old`)
+  console.log(`${dog.name} is ${dog.age * 7} dog years old`)
+  console.groupEnd(`${dog.name}`)
 })
 
-
     // counting
+    console.count('Wes')
+    console.count('Wes')
+    console.count('Wes')
+    console.count('Wes')
+    console.count('Wes')
+//tells you how many times it has been logged
 
     // timing
 
