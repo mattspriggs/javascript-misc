@@ -61,10 +61,13 @@
     const sliderImages = document.querySelectorAll('.slide-in')
 
     function checkSlide(e){
-      console.log(e)
+      sliderImages.forEach(sliderImage =>{
+        const slideInAt = (window.scrollY + window.innerHeight)
+      })
     }
 
-    window.addEventListener('scroll', checkSlide)
+    window.addEventListener('scroll', debounce(checkSlide))//wrap in debounce to limit the number of times the function runs
+
 
   </script>
 
