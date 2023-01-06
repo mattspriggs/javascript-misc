@@ -62,7 +62,19 @@
 
     function checkSlide(e){
       sliderImages.forEach(sliderImage =>{
-        const slideInAt = (window.scrollY + window.innerHeight)
+        const slideInAt = (window.scrollY + window.innerHeight)- sliderImage.height /2
+        //gives the bottom of the view window; the set trigger at the 50% of the image height
+        //bottom of the image
+        const imageBottom = sliderImage.offsetTop + sliderImage.height
+        const isHalfShown= slideInAt > sliderImage.offset
+        const isNotScrolledPast = window.scrollY < imageBottom
+        if(isHalfShown && isNotScrolledPast){
+          sliderImage.classList.add('active')
+        }else{
+          sliderImage.classList.remove('active')
+        }
+
+
       })
     }
 
