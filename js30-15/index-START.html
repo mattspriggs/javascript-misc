@@ -30,6 +30,17 @@
   const itemsList = document.querySelector('.plates');
   const items = [];
 
+  addItems.addEventListener('submit', addItem)//submit events are broader that other events such as click
+
+  function addItem(e){
+    e.preventDefault()
+    const text = (this.querySelector('[name=item]')).value//this = form so it will look for the entry with name on the form
+    const item ={
+      text,
+      done: false
+    }
+  }
+
 </script>
 
 
