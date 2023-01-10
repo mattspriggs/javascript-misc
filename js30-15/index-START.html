@@ -34,11 +34,24 @@
 
   function addItem(e){
     e.preventDefault()
-    const text = (this.querySelector('[name=item]')).value//this = form so it will look for the entry with name on the form
+    const text = (this.querySelector('[name=item]')).value//this = form element, so it will look for the entry with name on the form
     const item ={
       text,
       done: false
     }
+    items.push(item)
+    populateList(items, itemsList)
+    this.reset()//will clear the entry on the form
+  }
+
+  function populateList(plates = [], platesList){
+    platesList.innerHTML = plates.map((plate, i) =>{
+    return `
+      <li>
+        <label for = "">${plate.text}</label>
+      </li>
+    `
+    }).join('')
   }
 
 </script>
