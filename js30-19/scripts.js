@@ -37,7 +37,8 @@ function takePhoto(){
 	const link = document.createElement('a')
 	link.href = data
 	link.setAttribute('download', 'handsome')
-	link.textContent = 'Download Image'
+	link.innerHTML = `<image src="${data}" alt="image capture"/>`
+	strip.insertBefore(link, strip.firstChild)
 }
 
 getVideo()
