@@ -29,7 +29,7 @@ function paintToCanvas (){
 		//send to a different function to alter
 		pixels = redEffect(pixels)
 		//put altered pixels back
-		ctx.putImageData(pixels)
+		ctx.putImageData(pixels, 0, 0)
 	}, 16)
 }
 
@@ -48,10 +48,19 @@ function takePhoto(){
 }
 
 function redEffect(pixels){
-	for(let i = 0; i < pixels.length; i+= 4){
+	for(let i = 0; i < pixels.data.length; i+= 4){
 		pixels[i + 0] = pixels.data[i + 0] + 100//red
 		pixels[i + 1] = pixels.data[i + 1] - 50//green
 		pixels[i + 2] = pixels.data[i + 2] * 0.5//blue
+	}
+	return pixels
+}
+
+function rgbSplit(pixels){
+	for(let i = 0; i < pixels.data.length; i+= 4){
+		pixels[i -150] = pixels.data[i + 0 ] //red
+		pixels[i + 100] = pixels.data[i + 1] //green
+		pixels[i - 150] = pixels.data[i + 2] //blue
 	}
 	return pixels
 }
