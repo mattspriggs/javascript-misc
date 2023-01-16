@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
 
-function getVideo(){
+function getVideo() {
 	navigator.mediaDevices.getUserMedia({video: true, audio: false})
 		.then(localMediaStream => {
 			console.log(localMediaStream)
@@ -22,7 +22,7 @@ function paintToCanvas (){
 	canvas.width = width
 	canvas.height = height
 
-	return setInterval(() =>{
+	return setInterval(() => {
 		ctx.drawImage(video, 0, 0, width, height)
 		//take the pixels out - unable to get pixels to alter
 		let pixels = ctx.getImageData(0, 0, width, height)
@@ -97,6 +97,7 @@ function greenScreen(pixels){
 			pixels.data[i + 3] = 0;
 		}
 	}
+	return pixels
 }
 
 getVideo()
