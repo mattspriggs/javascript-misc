@@ -8,8 +8,8 @@ function highlightLink (){
 	const coords = {
 		width: linkCoords.width,
 		height: linkCoords.height,
-		top: linkCoords.top - window.scrollY,
-		left: linkCoords.left - window.scrollX
+		top: linkCoords.top + window.scrollY,//adjusts for the vertical scroll
+		left: linkCoords.left + window.scrollX//adjusts for horizontal scroll, if any (NEVER have horizontal scroll!)
 	}
 	highlight.style.width = `${coords.width}px`
 	highlight.style.height = `${coords.height}px`
