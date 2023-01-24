@@ -70,6 +70,10 @@ nav li {
   align-items: center;
 }
 
+.fixed-nav li.logo{
+  max-width: 500px;
+}
+
 li.logo {
   max-width: 0;
   overflow: hidden;
