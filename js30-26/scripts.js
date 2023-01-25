@@ -6,10 +6,12 @@ function handleEnter(){
 	this.classList.add('trigger-enter')
 	//setTimeout(function(){ ... }//this will be undefined in a normal function
 	setTimeout(() => this.classList.add('trigger-enter-active'), 150)//in an arrow function it inherits this from the parent
+	background.classList.add('open')
 }
 
 function handleLeave(){
-	console.log('LEAVE!!!!!!!!!!!!!')
+	this.classList.remove('trigger-enter', 'trigger-enter-active')
+	background.classList.remove('open')
 }
 
 triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter))
