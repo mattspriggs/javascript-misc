@@ -5,7 +5,11 @@ const nav = document.querySelector('.top')
 function handleEnter(){
 	this.classList.add('trigger-enter')
 	//setTimeout(function(){ ... }//this will be undefined in a normal function
-	setTimeout(() => this.classList.add('trigger-enter-active'), 150)//in an arrow function it inherits this from the parent
+	setTimeout(() => {
+		if(this.classList.contains('trigger-enter')){
+		this.classList.add('trigger-enter-active')
+		}
+	}, 150)//in an arrow function it inherits this from the parent
 	background.classList.add('open')
 	const dropdown = this.querySelector('.dropdown')
 	const dropdownCoords = dropdown.getBoundingClientRect()
@@ -13,8 +17,8 @@ function handleEnter(){
 	const coords = {
 		height: dropdownCoords.height,
 		width: dropdownCoords.width,
-		top: dropdownCoords.top,
-		left: dropdownCoords.left
+		top: dropdownCoords.top - navCoords.top,
+		left: dropdownCoords.left - navCoords.left
 	}
 	background.style.setProperty('width', `${coords.width}px`)
 	background.style.setProperty('height', `${coords.height}px`)
