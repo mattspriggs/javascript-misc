@@ -12,10 +12,13 @@ function handleEnter(){
 	const navCoords = nav.getBoundingClientRect()
 	const coords = {
 		height: dropdownCoords.height,
-		width: dropdownCoords.width
+		width: dropdownCoords.width,
+		top: dropdownCoords.top,
+		left: dropdownCoords.left
 	}
-	background.style.setProperty('width', coords.width)
-	background.style.setProperty('height', coords.height)
+	background.style.setProperty('width', `${coords.width}px`)
+	background.style.setProperty('height', `${coords.height}px`)
+	background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`)
 }
 
 function handleLeave(){
