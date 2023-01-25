@@ -7,6 +7,15 @@ function handleEnter(){
 	//setTimeout(function(){ ... }//this will be undefined in a normal function
 	setTimeout(() => this.classList.add('trigger-enter-active'), 150)//in an arrow function it inherits this from the parent
 	background.classList.add('open')
+	const dropdown = this.querySelector('.dropdown')
+	const dropdownCoords = dropdown.getBoundingClientRect()
+	const navCoords = nav.getBoundingClientRect()
+	const coords = {
+		height: dropdownCoords.height,
+		width: dropdownCoords.width
+	}
+	background.style.setProperty('width', coords.width)
+	background.style.setProperty('height', coords.height)
 }
 
 function handleLeave(){
