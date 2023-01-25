@@ -5,11 +5,11 @@ const nav = document.querySelector('.top')
 function handleEnter(){
 	this.classList.add('trigger-enter')
 	//setTimeout(function(){ ... }//this will be undefined in a normal function
-	setTimeout(() => {
-		if(this.classList.contains('trigger-enter')){
-		this.classList.add('trigger-enter-active')
-		}
-	}, 150)//in an arrow function it inherits this from the parent
+	// setTimeout(() => {
+	// 	if(this.classList.contains('trigger-enter')){//Using this if statement makes the content only show when the timeout is complete
+	// 	this.classList.add('trigger-enter-active')
+	// 	}}
+	setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150)//in an arrow function it inherits this from the parent and is the shortest way to write the function
 	background.classList.add('open')
 	const dropdown = this.querySelector('.dropdown')
 	const dropdownCoords = dropdown.getBoundingClientRect()
