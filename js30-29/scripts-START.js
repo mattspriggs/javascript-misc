@@ -42,3 +42,10 @@ function startTimer(){
 }
 
 buttons.forEach(button => button.addEventListener('click', startTimer))
+document.customForm.addEventListener('submit', function(e){
+	e.preventDefault()
+	const mins = this.minutes.value
+	console.log(mins)
+	timer(mins *60)
+	this.reset()
+})//forms with names can be selected without a query
