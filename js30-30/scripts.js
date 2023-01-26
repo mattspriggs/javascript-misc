@@ -2,7 +2,7 @@ const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
 let lastHole
-function randTime(min, max){
+function randomTime(min, max){
 	return Math.round(Math.random() * (max - min) + min)
 }
 
@@ -11,7 +11,14 @@ function randomHole(holes){
 	const hole = holes[idx]
 	if(hole === lastHole){
 		console.log('Ah nah that is the same one bud')
-		randomHole(holes)
+		return randomHole(holes)
 	}
 	lastHole = hole
+	return hole
+}
+
+function peep(){
+	const time = randomTime(200, 1000)
+	const hole = randomHole(holes)
+	console.log(time, hole)
 }
