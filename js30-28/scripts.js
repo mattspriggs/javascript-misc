@@ -8,5 +8,8 @@ speed.addEventListener('mousemove', function(e){
 	const min = 0.4
 	const max = 4
 	const height = Math.round(percent * 100) + '%'
+	bar.style.height = height
+	const playbackRate = percent * (max - min) + min
+	bar.textContent = playbackRate.toFixed(2) + 'x'
 	console.log(height)
 })
